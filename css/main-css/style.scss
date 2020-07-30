@@ -1,13 +1,18 @@
+$nav: #d6d6d6;
+$nav-active: #757575;
+$primary: #008528;
+
 body {
     margin: 0 0;
     padding: 0 0;
+    background-color: $primary;
 }
 
 #top-row {
     position: fixed;
     top: 0px;
     height: 100px;
-    background-color: red;
+    // background-color: red;
     width: 100%;
     margin: 0 auto;
     display: flex;
@@ -20,7 +25,7 @@ body {
     position: fixed;
     top: 100px;
     height: 100px;
-    background-color: green;
+    background-color: $primary;
     width: 100%;
     margin: 0 auto;
     display: flex;
@@ -31,15 +36,124 @@ body {
 
 .cards {
     box-sizing: border-box;
-    margin: .1em .2em;
-    width: 46px;
-    height: 65px;
+    border-radius: 2px;
+    margin: .1em .1em;
+    width: 42px;
+    height: 60px;
+    background-color: rgb(0, 116, 0);
+
+}
+
+.full { //for the deck
     background-image: url("../../images/bicyclecard.jpg");
     background-size: contain;
     background-repeat: no-repeat;
-    background-attachment: inherit;
+    background-position: center;
+    border: solid black 1px;
+}
+
+.empty { //for the deck
+    visibility: hidden;
+}
+
+.ace-stack .flipped-card {
+    position: absolute;
+}
+
+#bottom-row .cards {
+    display: grid;
+    grid-template-rows: repeat (14, 20px);
+}
+
+.unknown-cards {
+    border-radius: 2px;
+    box-sizing: border-box;
+    border: solid black 1px;
+    width: 42px;
+    height: 60px;
+    background-image: url("../../images/bicyclecard.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    // background-attachment: inherit;
+    background-position: center;
+    grid-row: 2 / span 3;
+    grid-column: 1 / span 1;
+}
+
+.unknown-card {
+    display: none;
+}
+
+//  .cards .unknown-card:nth-of-type(1) {
+//     display: block;
+//     grid-row: 1 / span 3;
+//     grid-column: 1 / span 1;
+// }
+
+
+.flipped-card {
+    grid-column: 1 / span 1;
+    border-radius: 2px;
+    background-color: blue;
+    width: 42px;
+    height: 60px;
+    box-sizing: border-box;
+    border: solid black 1px;
+    background-size: contain;
+    background-repeat: no-repeat;
     background-position: center;
 }
+
+#bottom-row .cards .flipped-card {
+    position: relative;
+    top: -10px;
+}
+
+
+.cards .flipped-card:nth-of-type(even) {
+    background-color: red;
+}
+
+.cards .flipped-card:nth-of-type(1) {
+    grid-row: 2 / span 3;
+}
+.cards .flipped-card:nth-of-type(2) {
+    grid-row: 3 / span 3;
+}
+.cards .flipped-card:nth-of-type(3) {
+    grid-row: 4 / span 3;
+}
+.cards .flipped-card:nth-of-type(4) {
+    grid-row: 5 / span 3;
+}
+.cards .flipped-card:nth-of-type(5) {
+    grid-row: 6 / span 3;
+}
+.cards .flipped-card:nth-of-type(6) {
+    grid-row: 7 / span 3;
+}
+.cards .flipped-card:nth-of-type(7) {
+    grid-row: 8 / span 3;
+}
+.cards .flipped-card:nth-of-type(8) {
+    grid-row: 9 / span 3;
+}
+.cards .flipped-card:nth-of-type(9) {
+    grid-row: 10 / span 3;
+}
+.cards .flipped-card:nth-of-type(10) {
+    grid-row: 11 / span 3;
+}
+.cards .flipped-card:nth-of-type(11) {
+    grid-row: 12 / span 3;
+}
+.cards .flipped-card:nth-of-type(12) {
+    grid-row: 13 / span 3;
+}
+.cards .flipped-card:nth-of-type(13) {
+    grid-row: 14 / span 3;
+}
+
 
 #button-container {
     position: fixed;
@@ -53,6 +167,26 @@ body {
 }
 
 button {
-    background-color: blue($color: #000000);
-    width: 200px;
+    z-index: 3;
+    box-sizing: border-box;
+    height: 35%;
+    outline: none;
+    margin: 10px 10px;
+    padding: 5px 5px;
+    width: 100px;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 0 0 10px;
+    font-weight: bold;
+    background-image: linear-gradient($nav 15%, $nav-active);
 }
+
+button:active {
+    background-image: linear-gradient($nav-active, $nav);
+    box-shadow: none;
+}
+
+#empty-space {
+    visibility: hidden;
+}
+
