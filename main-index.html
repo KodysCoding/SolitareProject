@@ -9,23 +9,15 @@
 <body>
     <div id='top-row'>
 
-        <div class='cards full' id='deck'>
+        <div class='full' id='deck'>
+            <div class='deck-unflipped' id='remaining-cards'>
+            </div>
         </div>
         <div class='cards' id='flipped-deck'>
         </div>
         <div class='cards' id='empty-space'>
         </div>
         <div class='cards ace-stack'>
-            <div class='flipped-card'>
-            </div>
-            <div class='flipped-card'>
-            </div>
-            <div class='flipped-card'>
-            </div>
-            <div class='flipped-card'>
-            </div>
-            <div class='flipped-card'>
-            </div>
         </div>
         <div class='cards ace-stack'>
         </div>
@@ -36,64 +28,37 @@
 
     </div>
     <div id='bottom-row'>
-        <div class='cards'>
-            <div class='unknown-cards'>
-                <div class='unknown-card'>
-                </div>
-            </div>
-            <div class='flipped-card'>
-            </div>
-            <div class='flipped-card'>
-            </div>
-            <div class='flipped-card'>
-            </div>
-            <div class='flipped-card'>
-            </div>
-            <div class='flipped-card'>
+        <div class='cards' id="first-stack">
+        </div>
+        <div class='cards' id="second-stack">
+            <div class='unknown-cards' id='second-unknown'>
             </div>
         </div>
-        <div class='cards'>
-            <div class='unknown-cards'>
-                <div class='unknown-card'>
-                </div>
-                <div class='unknown-card'>
-                </div>
-            </div>
-            <div class='flipped-card'>
-            </div>
-            <div class='flipped-card'>
-            </div>
-            <div class='flipped-card'>
-            </div>
-            <div class='flipped-card'>
-            </div>
-            <div class='flipped-card'>
+        <div class='cards' id="third-stack">
+            <div class='unknown-cards' id='third-unknown'>
             </div>
         </div>
-        <div class='cards'>
-            <div class='unknown-cards'>
+        <div class='cards' id="fourth-stack">
+            <div class='unknown-cards' id='fourth-unknown'>
             </div>
         </div>
-        <div class='cards'>
-            <div class='unknown-cards'>
+        <div class='cards' id="fifth-stack">
+            <div class='unknown-cards' id='fifth-unknown'>
             </div>
         </div>
-        <div class='cards'>
-            <div class='unknown-cards'>
+        <div class='cards' id="sixth-stack">
+            <div class='unknown-cards' id='sixth-unknown'>
             </div>
         </div>
-        <div class='cards'>
-            <div class='unknown-cards'>
-            </div>
-        </div>
-        <div class='cards'>
-            <div class='unknown-cards'>
+        <div class='cards' id="seventh-stack">
+            <div class='unknown-cards' id='seventh-unknown'>
             </div>
         </div>
     </div>
     <div id='button-container'>
         <button id="new-game">New Game</button>
     </div>
-    
+
+    <script src="js/main.js"></script>
 </body>
 </html>

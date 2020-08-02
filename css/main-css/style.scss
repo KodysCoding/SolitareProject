@@ -44,19 +44,19 @@ body {
 
 }
 
-.full { //for the deck
-    background-image: url("../../images/bicyclecard.jpg");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    border: solid black 1px;
-}
+// .full { //for the deck
+//     background-image: url("../../images/bicyclecard.jpg");
+//     background-size: contain;
+//     background-repeat: no-repeat;
+//     background-position: center;
+//     border: solid black 1px;
+//     width: 42px;
+//     height: 60px;
+// }
 
-.empty { //for the deck
-    visibility: hidden;
-}
 
-.ace-stack .flipped-card {
+
+.ace-stack .flipped-card, #flipped-deck .flipped-card {
     position: absolute;
 }
 
@@ -94,25 +94,29 @@ body {
 .flipped-card {
     grid-column: 1 / span 1;
     border-radius: 2px;
-    background-color: blue;
+    padding: 0 1px;
     width: 42px;
     height: 60px;
+    background-color: white;
     box-sizing: border-box;
     border: solid black 1px;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+    font-weight: bold;
+    font-size: 14px;
+    user-select: none;
 }
 
-#bottom-row .cards .flipped-card {
-    position: relative;
-    top: -10px;
-}
+// #bottom-row .cards .flipped-card {
+//     position: relative;
+//     top: -10px;
+// }
 
 
-.cards .flipped-card:nth-of-type(even) {
-    background-color: red;
-}
+// .cards .flipped-card:nth-of-type(even) {
+//     background-color: red;
+// }
 
 .cards .flipped-card:nth-of-type(1) {
     grid-row: 2 / span 3;
@@ -190,3 +194,33 @@ button:active {
     visibility: hidden;
 }
 
+
+// #deck {
+//     display: none;
+// }
+
+
+#remaining-cards:empty {
+    background-image: none;
+    box-sizing: border-box;
+    border-radius: 2px;
+    margin: .1em .1em;
+    width: 42px;
+    height: 60px;
+    background-color: rgb(0, 116, 0);
+    border: none;
+}
+
+#remaining-cards:not(:empty){
+    border-radius: 2px;
+    box-sizing: border-box;
+    border-color: black;
+    border-style: solid;
+    border-width: 1px 1px 3px 3px;
+    width: 43px;
+    height: 61px;
+    background-image: url("../../images/bicyclecard.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
