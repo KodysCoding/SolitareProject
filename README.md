@@ -1,3 +1,3 @@
 # SolitareProject
 
-# Starting a project to build a solitare game
+# Starting a project to manifest a solitare game
