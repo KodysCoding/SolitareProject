@@ -12,7 +12,6 @@ body {
     position: fixed;
     top: 0px;
     height: 100px;
-    // background-color: red;
     width: 100%;
     margin: 0 auto;
     display: flex;
@@ -43,17 +42,6 @@ body {
     background-color: rgb(0, 116, 0);
 
 }
-
-// .full { //for the deck
-//     background-image: url("../../images/bicyclecard.jpg");
-//     background-size: contain;
-//     background-repeat: no-repeat;
-//     background-position: center;
-//     border: solid black 1px;
-//     width: 42px;
-//     height: 60px;
-// }
-
 
 
 .ace-stack .flipped-card, #flipped-deck .flipped-card {
@@ -94,7 +82,7 @@ body {
 .flipped-card {
     grid-column: 1 / span 1;
     border-radius: 2px;
-    padding: 0 1px;
+    padding: 0 2px;
     width: 42px;
     height: 60px;
     background-color: white;
@@ -107,16 +95,6 @@ body {
     font-size: 14px;
     user-select: none;
 }
-
-// #bottom-row .cards .flipped-card {
-//     position: relative;
-//     top: -10px;
-// }
-
-
-// .cards .flipped-card:nth-of-type(even) {
-//     background-color: red;
-// }
 
 .cards .flipped-card:nth-of-type(1) {
     grid-row: 2 / span 3;
@@ -217,10 +195,53 @@ button:active {
     border-color: black;
     border-style: solid;
     border-width: 1px 1px 3px 3px;
-    width: 43px;
+    width: 44px;
     height: 61px;
     background-image: url("../../images/bicyclecard.jpg");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+}
+
+
+
+.overlay {
+    z-index: 10;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+}
+
+#holding-div {
+    display: none;
+}
+
+
+@media(min-width:550px){
+
+    .cards, .unknown-cards, .flipped-card, #remaining-cards:empty {
+        width: 48px;
+        height: 70px
+    }
+    #remaining-cards:not(:empty){
+        width: 50px;
+        height: 71px;
+    }
+
+}
+
+
+@media(min-width:700px){
+
+    .cards, .unknown-cards, .flipped-card, #remaining-cards:empty {
+        width: 63px;
+        height: 90px;
+    }
+
+    #remaining-cards:not(:empty){
+        width: 65px;
+        height: 91px;
+    }
 }
