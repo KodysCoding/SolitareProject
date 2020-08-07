@@ -222,7 +222,9 @@ flippedDeck.addEventListener('click', () => {
         flippedDeck.lastElementChild.style.webkitUserDrag = 'none';
         // flippedDeck.lastElementChild.setAttribute('draggable', false);
         deck.appendChild(flippedDeck.lastElementChild);
-        flippedDeck.lastElementChild.style.webkitUserDrag = 'element';
+        if(flippedDeck.children.length > 0){
+            flippedDeck.lastElementChild.style.webkitUserDrag = 'element';
+        };
     };
     //removes overlay div's class name to enable click events
     setTimeout(() => {overlay.className = ''}, 400);
