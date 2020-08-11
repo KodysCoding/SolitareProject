@@ -66,20 +66,20 @@ function shuffelAndDeal () {
        array.forEach(arrayItem => {
             let newCard = document.createElement('div');
             if(arrayItem[1] == 'c'){
-                newCard.style.backgroundImage = "url('../images/clubs.jpg')";
+                newCard.style.backgroundImage = "url('./images/clubs.jpg')";
                 newCard.style.color = 'black';
                 newCard.className = 'clubs';
                 } else if(arrayItem[1] == 'd'){
-                newCard.style.backgroundImage = "url('../images/diamonds.jpg')";
+                newCard.style.backgroundImage = "url('./images/diamonds.jpg')";
                 newCard.style.color = 'red';
                 newCard.className = 'diamonds';
                 } else if(arrayItem[1] == 'h'){
-                newCard.style.backgroundImage = "url('../images/hearts.jpg')";
+                newCard.style.backgroundImage = "url('./images/hearts.jpg')";
                 newCard.style.backgroundPosition = 'center 13px';
                 newCard.style.color = 'red';
                 newCard.className = 'hearts';
                 } else if(arrayItem[1] == 's'){
-                newCard.style.backgroundImage = "url('../images/spades.jpg')";
+                newCard.style.backgroundImage = "url('./images/spades.jpg')";
                 newCard.style.color = 'black';
                 newCard.className = 'spades';
             };
@@ -97,20 +97,20 @@ function shuffelAndDeal () {
     //asigning (and styling) the first container array's card value array to its own div within the first card stack container div
     let newCard = document.createElement('div');
     if(cardStackOne[0][1] == 'c'){
-        newCard.style.backgroundImage = "url('../images/clubs.jpg')";
+        newCard.style.backgroundImage = "url('./images/clubs.jpg')";
         newCard.style.color = 'black';
         newCard.className = 'clubs';
         } else if(cardStackOne[0][1] == 'd'){
-        newCard.style.backgroundImage = "url('../images/diamonds.jpg')";
+        newCard.style.backgroundImage = "url('./images/diamonds.jpg')";
         newCard.style.color = 'red';
         newCard.className = 'diamonds';
         } else if(cardStackOne[0][1] == 'h'){
-        newCard.style.backgroundImage = "url('../images/hearts.jpg')";
+        newCard.style.backgroundImage = "url('./images/hearts.jpg')";
         newCard.style.backgroundPosition = 'center 13px';
         newCard.style.color = 'red';
         newCard.className = 'hearts';
         } else if(cardStackOne[0][1] == 's'){
-        newCard.style.backgroundImage = "url('../images/spades.jpg')";
+        newCard.style.backgroundImage = "url('./images/spades.jpg')";
         newCard.style.color = 'black';
         newCard.className = 'spades';
     };
@@ -118,8 +118,8 @@ function shuffelAndDeal () {
     newCard.addEventListener('dragend', dragEnd);
     newCard.className += ' flipped-card';
     newCard.innerHTML = cardStackOne[0][0];
-    newCard.style.webkitUserDrag = 'element';
-    // newCard.setAttribute('draggable', true);
+    // newCard.style.webkitUserDrag = 'element';
+    newCard.setAttribute('draggable', true);
     firstStack.appendChild(newCard);
 
     //calling function to asign and style each container array's card value array to its own div and put into its respective card container div
@@ -137,8 +137,8 @@ function shuffelAndDeal () {
         let flippedCard = stack.lastElementChild;
         flippedCard.classList.remove('unknown-card');
         flippedCard.className += ' flipped-card';
-        flippedCard.style.webkitUserDrag = 'element';
-        // flippedCard.setAttribute('draggable', true);
+        // flippedCard.style.webkitUserDrag = 'element';
+        flippedCard.setAttribute('draggable', true);
         document.getElementById(newStack).appendChild(flippedCard);
     };
     //calling function to flip the last card by changing its class name, and putting it into its respective card container div (and removing it from the unknown card container div)
@@ -171,14 +171,14 @@ deck.addEventListener('click', () => {
         deck.lastElementChild.classList.remove('unknown-card');
         deck.lastElementChild.className += ' flipped-card';
         //set attribute of the last card in the deck to draggable
-        deck.lastElementChild.style.webkitUserDrag = 'element';
-        // deck.lastElementChild.setAttribute('draggable', true);
+        // deck.lastElementChild.style.webkitUserDrag = 'element';
+        deck.lastElementChild.setAttribute('draggable', true);
 
         //if theres more than one card in the flipped deck, do this.....
         if(flippedDeck.children.length > 0){
             //remove the draggable attribute for the second to last card in the flipped deck
-            flippedDeck.lastElementChild.style.webkitUserDrag = 'none';
-            // flippedDeck.lastElementChild.setAttribute('draggable', false);
+            // flippedDeck.lastElementChild.style.webkitUserDrag = 'none';
+            flippedDeck.lastElementChild.setAttribute('draggable', false);
         };
 
         //take the last card in the deck, and append it to flipped deck
@@ -189,13 +189,13 @@ deck.addEventListener('click', () => {
         //while the flipped deck has anything in it, loop through it, and do this to each card.....
         while (flippedDeck.children.length > 0){
             //change the class name of the first card in the flipped deck to 'unknown-card'
-            flippedDeck.firstElementChild.classList.remove('flipped-card');
-            flippedDeck.firstElementChild.className += ' unknown-card';
+            flippedDeck.lastElementChild.classList.remove('flipped-card');
+            flippedDeck.lastElementChild.className += ' unknown-card';
             //remove the attribute (draggable) from the first card in the flipped deck
-            flippedDeck.firstElementChild.style.webkitUserDrag = 'none';
-            // flippedDeck.firstElementChild.setAttribute('draggable', false);
+            // flippedDeck.firstElementChild.style.webkitUserDrag = 'none';
+            flippedDeck.lastElementChild.setAttribute('draggable', false);
             //append the first card in the flipped deck back to the deck
-            deck.appendChild(flippedDeck.firstElementChild);
+            deck.appendChild(flippedDeck.lastElementChild);
         };
     };
     //remove white space in empty div so it registers as empty and applys relative stylings
@@ -219,11 +219,12 @@ flippedDeck.addEventListener('click', () => {
     if(flippedDeck.children.length > 0){
         flippedDeck.lastElementChild.classList.remove('flipped-card');
         flippedDeck.lastElementChild.className += ' unknown-card';
-        flippedDeck.lastElementChild.style.webkitUserDrag = 'none';
-        // flippedDeck.lastElementChild.setAttribute('draggable', false);
+        // flippedDeck.lastElementChild.style.webkitUserDrag = 'none';
+        flippedDeck.lastElementChild.setAttribute('draggable', false);
         deck.appendChild(flippedDeck.lastElementChild);
         if(flippedDeck.children.length > 0){
-            flippedDeck.lastElementChild.style.webkitUserDrag = 'element';
+            //flippedDeck.lastElementChild.style.webkitUserDrag = 'element';
+            flippedDeck.lastElementChild.setAttribute('draggable', true);
         };
     };
     //removes overlay div's class name to enable click events
@@ -358,7 +359,8 @@ for(let i = 0; i < cardStacks.length; i++){
             };
             
             if(flippedDeck.firstElementChild != null){
-                flippedDeck.lastElementChild.style.webkitUserDrag = 'element';
+                // flippedDeck.lastElementChild.style.webkitUserDrag = 'element';
+                flippedDeck.lastElementChild.setAttribute('draggable', true);
             };
             
                     
@@ -370,7 +372,8 @@ for(let i = 0; i < cardStacks.length; i++){
                     if(cardStacks[i].firstElementChild.hasChildNodes()){
                         cardStacks[i].firstElementChild.lastElementChild.classList.remove('unknown-card');
                         cardStacks[i].firstElementChild.lastElementChild.className += ' flipped-card';
-                        cardStacks[i].firstElementChild.lastElementChild.style.webkitUserDrag = 'element';
+                        // cardStacks[i].firstElementChild.lastElementChild.style.webkitUserDrag = 'element';
+                        cardStacks[i].firstElementChild.lastElementChild.setAttribute('draggable', true);
                         cardStacks[i].appendChild(cardStacks[i].firstElementChild.lastElementChild);
                         if(cardStacks[i].firstElementChild.children.length == 0){
                             cardStacks[i].removeChild(cardStacks[i].firstElementChild);
@@ -406,7 +409,8 @@ for(let i = 0; i < aceStack.length; i++){
             if(aceStack[i].children.length == 0){
                 if(dragging.innerHTML == 'A'){
                     aceStack[i].appendChild(dragging);
-                    aceStack[i].lastElementChild.style.webkitUserDrag = 'none';
+                    // aceStack[i].lastElementChild.style.webkitUserDrag = 'none';
+                    aceStack[i].lastElementChild.setAttribute('draggable', false);
                 };
             }else if(aceStack[i].lastElementChild.innerHTML == 'A'){
                 cardCheck('2');
@@ -441,21 +445,26 @@ for(let i = 0; i < aceStack.length; i++){
 
                 if(aceStack[i].lastElementChild.classList.contains('clubs') && dragging.classList.contains('clubs')){
                     aceStack[i].appendChild(dragging);
-                    aceStack[i].lastElementChild.style.webkitUserDrag = 'none'
+                    // aceStack[i].lastElementChild.style.webkitUserDrag = 'none'
+                    aceStack[i].lastElementChild.setAttribute('draggable', false);
                 }else if(aceStack[i].lastElementChild.classList.contains('diamonds') && dragging.classList.contains('diamonds')){
                     aceStack[i].appendChild(dragging);
-                    aceStack[i].lastElementChild.style.webkitUserDrag = 'none';
+                    // aceStack[i].lastElementChild.style.webkitUserDrag = 'none';
+                    aceStack[i].lastElementChild.setAttribute('draggable', false);
                 }else if(aceStack[i].lastElementChild.classList.contains('hearts') && dragging.classList.contains('hearts')){
                     aceStack[i].appendChild(dragging);
-                    aceStack[i].lastElementChild.style.webkitUserDrag = 'none';
+                    // aceStack[i].lastElementChild.style.webkitUserDrag = 'none';
+                    aceStack[i].lastElementChild.setAttribute('draggable', false);
                 }else if(aceStack[i].lastElementChild.classList.contains('spades') && dragging.classList.contains('spades')){
                     aceStack[i].appendChild(dragging);
-                    aceStack[i].lastElementChild.style.webkitUserDrag = 'none';
+                    // aceStack[i].lastElementChild.style.webkitUserDrag = 'none';
+                    aceStack[i].lastElementChild.setAttribute('draggable', false);
                 };
             };
 
             if(flippedDeck.firstElementChild != null){
-                flippedDeck.lastElementChild.style.webkitUserDrag = 'element';
+                // flippedDeck.lastElementChild.style.webkitUserDrag = 'element';
+                flippedDeck.lastElementChild.setAttribute('draggable', true);
             };
         };
 
@@ -465,7 +474,8 @@ for(let i = 0; i < aceStack.length; i++){
                     if(cardStacks[i].firstElementChild.hasChildNodes()){
                         cardStacks[i].firstElementChild.lastElementChild.classList.remove('unknown-card');
                         cardStacks[i].firstElementChild.lastElementChild.className += ' flipped-card';
-                        cardStacks[i].firstElementChild.lastElementChild.style.webkitUserDrag = 'element';
+                        // cardStacks[i].firstElementChild.lastElementChild.style.webkitUserDrag = 'element';
+                        cardStacks[i].firstElementChild.lastElementChild.setAttribute('draggable', true);
                         cardStacks[i].appendChild(cardStacks[i].firstElementChild.lastElementChild);
                         if(cardStacks[i].firstElementChild.children.length == 0){
                             cardStacks[i].removeChild(cardStacks[i].firstElementChild);
@@ -489,27 +499,3 @@ for(let i = 0; i < aceStack.length; i++){
         e.preventDefault();
     });
 };
-
-
-
-// for(let i = 0; i < cardStacks.length; i++){
-//     cardStacks[i].addEventListener('click', ()=>{
-//         if(cardStacks[i].children.length >= 1){
-//             if(cardStacks[i].lastElementChild.classList.contains('unknown-cards')){
-//                 if(cardStacks[i].firstElementChild.hasChildNodes()){
-//                     cardStacks[i].firstElementChild.lastElementChild.classList.remove('unknown-card');
-//                     cardStacks[i].firstElementChild.lastElementChild.className += ' flipped-card';
-//                     cardStacks[i].firstElementChild.lastElementChild.style.webkitUserDrag = 'element';
-//                     cardStacks[i].appendChild(cardStacks[i].firstElementChild.lastElementChild);
-//                     if(cardStacks[i].firstElementChild.children.length == 0){
-//                         cardStacks[i].removeChild(cardStacks[i].firstElementChild);
-//                     };
-//                 }else if(cardStacks[i].firstElementChild.children < 1){
-//                     cardStacks[i].removeChild(cardStacks[i].firstElementChild);
-//                 };
-    
-//             };
-//         };
-//     });
-    
-// };
